@@ -4,6 +4,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.11
+  - pip
   - numpy
   - pandas
   - matplotlib
@@ -11,3 +12,11 @@ dependencies:
   - scipy
   - scikit-learn
   - jupyterlab
+  - xgboost
+  - lightgbm
+  - pytorch
+  - torchvision
+  - torchaudio
+  - tensorflow
+  - black
+  - flake8
