@@ -1,15 +1,13 @@
-# ベースイメージ
 FROM continuumio/anaconda3:2024.10-1
 
-# 作業ディレクトリ
-WORKDIR /app
+WORKDIR /workspace
 
-# パッケージインストール
-RUN conda install -y numpy pandas matplotlib seaborn scipy scikit-learn jupyterlab && \
-    conda clean -afy
+COPY environment.yml /workspace/
 
-# ポート公開
+RUN conda env create -f environment.yml && conda clean -afy
+
+ENV PATH /opt/conda/envs/ds-anaconda/bin:$PATH
+
 EXPOSE 8888
 
-# 起動時コマンド
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
